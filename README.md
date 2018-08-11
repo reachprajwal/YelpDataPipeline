@@ -18,7 +18,8 @@ This is used to create a kafka broker which is used as a producer, consumer or b
    - Image pulled from the dockerhub : ches/kafka
 
 
-###Docker files built using docker-compose:
+**Docker files built using docker-compose:**
+
 The dockerfiles are available [in here](https://github.com/reachprajwal/YelpDataPipeline/tree/master/Dockerfiles)
 
 1. Dockerfile1
