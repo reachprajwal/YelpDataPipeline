@@ -1,7 +1,9 @@
 # YelpDataPipeline
+
 The [architecture](https://github.com/reachprajwal/YelpDataPipeline/blob/master/architecturalDesign.jpg) design contains 5 dockers in total. 2 are pre-built images and 3 are built using docker-compose .
 
 ## Docker deatails
+
 **Pre-built dockers:**
 
 1. Zookeeper:
@@ -10,6 +12,7 @@ This is a simple docker container having only the zookeeper on-board.
         - It is used to keep the kafka broker information for data communication
         - It is used to store the off-set for the kafka consumer
    - Image pulled from the dockerhub : zookeeper:3.4
+   
 2. Kafka:
 This is used to create a kafka broker which is used as a producer, consumer or both (like int the current case)
    - Uses:
@@ -53,7 +56,8 @@ Detials
 Details
    - The third docker has the following technologies available:
         - Python 3.5
-        - Pandas, Numpy, Matplotlib, Django
+        - Pandas, Numpy, Matplotlib
+        - Django
         - Connection to the docker volume
    - The data copied into the docker:
         - This docker will have the django [app](https://github.com/reachprajwal/YelpDataPipeline/tree/master/yelpApp) which is used to host a webapplication to show the charts generated from the final gold-data
@@ -62,6 +66,7 @@ Details
         - It can be used to determine the future crowd-flow into a particular business depending on previous data (available in the data-set)
             
 ## Work-flow details
+
 Now we shall see the procedure required to run the whole project end to end manually:
 
 1. First we up the zookeeper with following command : docker run -d --name zookeeper --network kafka-net zookeeper:3.4 (you will need to create a user defined network for the zookeeper to connect to for communication, here I've assumed you've created a docker network called kafka-net)
