@@ -2,19 +2,19 @@
 The [architecture](https://github.com/reachprajwal/YelpDataPipeline/blob/master/architecturalDesign.jpg) design contains 5 dockers in total. 2 are pre-built images and 3 are built using docker-compose .
 
 ## Docker deatails
-###Pre-built dockers:
+**Pre-built dockers:**
 
 1. Zookeeper
         This is a simple docker container having only the zookeeper on-board.
             Uses:
-                - It is used to keep the kafka broker information for data communication
-                - It is used to store the off-set for the kafka consumer
+                > It is used to keep the kafka broker information for data communication
+                > It is used to store the off-set for the kafka consumer
             Image pulled from the dockerhub : zookeeper:3.4
 2. Kafka 
         This is used to create a kafka broker which is used as a producer, consumer or both (like int the current case)
             Uses:
-                - We use the same kafka broker to produce data and also consume the data
-                - It provides a form of a placeholder for the data to be consumed and produced
+                > We use the same kafka broker to produce data and also consume the data
+                > It provides a form of a placeholder for the data to be consumed and produced
             Image pulled from the dockerhub : ches/kafka
 
 
@@ -23,39 +23,39 @@ The dockerfiles are available [in here](https://github.com/reachprajwal/YelpData
 
 1. Dockerfile1
         The first docker has the following technologies available:
-            - Kafka Jars
-            - Java 8
+            > Kafka Jars
+            > Java 8
         The data copied into the docker:
-            - We'll need to put the [kafkaexamples](https://github.com/reachprajwal/YelpDataPipeline/tree/master/kafkaexamples) code into the docker
-            - We'll also need to copy the data csv files (not included in the repo as kaggle requires you to approve with an agreement to download the data files)
+            > We'll need to put the [kafkaexamples](https://github.com/reachprajwal/YelpDataPipeline/tree/master/kafkaexamples) code into the docker
+            > We'll also need to copy the data csv files (not included in the repo as kaggle requires you to approve with an agreement to download the data files)
         Role of the current docker in the whole process:
-            - It will only need to run the producers which will all individually publish the data into seperate topics into the port 9092
-            - So the program reads the csv files and publishes the data into the topic 
+            > It will only need to run the producers which will all individually publish the data into seperate topics into the port 9092
+            > So the program reads the csv files and publishes the data into the topic 
             
 2. Dockerfile2
         The second docker has the following technologies available:
-            - Kafka Jars
-            - Java 8
-            - Spark
-            - Connectoion to the docker volume
+            > Kafka Jars
+            > Java 8
+            > Spark
+            > Connectoion to the docker volume
         The data copied into the docker:
-            - We'll need to put the [kafkaexamples](https://github.com/reachprajwal/YelpDataPipeline/tree/master/kafkaexamples) code into the docker
-            - In the current implementation I've copied the current spark extracted files into the docker, which are executable files
+            > We'll need to put the [kafkaexamples](https://github.com/reachprajwal/YelpDataPipeline/tree/master/kafkaexamples) code into the docker
+            > In the current implementation I've copied the current spark extracted files into the docker, which are executable files
         Role of the docker in the whole process:
-            - It firstly will be used to consume the data on the particular kafka topics and create files out of the data consumed from port 9092
-            - It will then be used to execute the [ETL](https://github.com/reachprajwal/YelpDataPipeline/blob/master/src/main/scala/yelpETL/yelpETL.scala) process. This will be cleansing the whole dataset from most errors found in the data.
-            - After each of the files have gone through the ETL process, then the files are saved as csv files in the docker volume for the last docker to access the data
+            > It firstly will be used to consume the data on the particular kafka topics and create files out of the data consumed from port 9092
+            > It will then be used to execute the [ETL](https://github.com/reachprajwal/YelpDataPipeline/blob/master/src/main/scala/yelpETL/yelpETL.scala) process. This will be cleansing the whole dataset from most errors found in the data.
+            > After each of the files have gone through the ETL process, then the files are saved as csv files in the docker volume for the last docker to access the data
             
 3. Dockerfile3
         The third docker has the following technologies available:
-            - Python 3.5
-            - Pandas, Numpy, Matplotlib
-            - Django
+            > Python 3.5
+            > Pandas, Numpy, Matplotlib, Django
+            > Connection to the docker volume
         The data copied into the docker:
-            - This docker will have the django [app](https://github.com/reachprajwal/YelpDataPipeline/tree/master/yelpApp) which is used to host a webapplication to show the charts generated from the final gold-data
+            > This docker will have the django [app](https://github.com/reachprajwal/YelpDataPipeline/tree/master/yelpApp) which is used to host a webapplication to show the charts generated from the final gold-data
         Roles of the docker int he process:
-            - It is mainly used to perform analysis on the data to determine the business patterns and so on
-            - It can be used to determine the future crowd-flow into a particular business depending on previous data (available in the data-set)
+            > It is mainly used to perform analysis on the data to determine the business patterns and so on
+            > It can be used to determine the future crowd-flow into a particular business depending on previous data (available in the data-set)
             
 ## Work-flow details
 Now we shall see the procedure required to run the whole project end to end manually:
