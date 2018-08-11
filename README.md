@@ -2,7 +2,7 @@
 The [architecture](https://github.com/reachprajwal/YelpDataPipeline/blob/master/architecturalDesign.jpg) design contains 5 dockers in total. 2 are pre-built images and 3 are built using docker-compose .
 
 ## Docker deatails
-######Pre-built dockers:
+####Pre-built dockers:
 
 1. Zookeeper
         This is a simple docker container having only the zookeeper on-board.
@@ -18,8 +18,8 @@ The [architecture](https://github.com/reachprajwal/YelpDataPipeline/blob/master/
             Image pulled from the dockerhub : ches/kafka
 
 
-######Docker files built using docker-compose:
-The dockerfiles are available [in](https://github.com/reachprajwal/YelpDataPipeline/tree/master/Dockerfiles)
+####Docker files built using docker-compose:
+The dockerfiles are available [in here](https://github.com/reachprajwal/YelpDataPipeline/tree/master/Dockerfiles)
 
 1. Dockerfile1
         The first docker has the following technologies available:
