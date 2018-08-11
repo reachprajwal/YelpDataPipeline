@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+
+RUN apt-get install default-jre
+
+RUN apt-get install default-jdk
+
+RUN apt-get install software-properties-common python-software-properties
+
+RUN apt-get update
+
+RUN apt-get install oracle-java8-installer
+
+RUN echo "JAVA_HOME=\"/usr/lib/jvm/java-8-oracle\""
+
+RUN source /etc/environment

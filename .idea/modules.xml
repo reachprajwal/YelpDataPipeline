@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/kafkaexamples/kafkaexamples.iml" filepath="$PROJECT_DIR$/kafkaexamples/kafkaexamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yelpApp/yelpApp.iml" filepath="$PROJECT_DIR$/yelpApp/yelpApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yelpetl.iml" filepath="$PROJECT_DIR$/.idea/modules/yelpetl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/yelpetl-build.iml" filepath="$PROJECT_DIR$/.idea/modules/yelpetl-build.iml" />
+    </modules>
+  </component>
+</project>
