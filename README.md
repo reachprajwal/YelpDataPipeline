@@ -88,3 +88,9 @@ Now we shall see the procedure required to run the whole project end to end manu
 9. At the last step we perfrom required process to determine different aspects of the data to observer our findings of the data-set. For example I've extracted the [Businesses across the different states](https://github.com/reachprajwal/YelpDataPipeline/blob/master/yelpApp/charts/media/businesses.png) and the [varying number of checkins across the different days of the week](https://github.com/reachprajwal/YelpDataPipeline/blob/master/yelpApp/charts/media/checkings.png). This is two of the many scenarios we can address.
 
 10. The final findings and observations and findings are represented using a django applications, which currently has only 2 images, mentioned in the previous step.
+
+## Future Work:
+
+With the need create more charts, I've been looking up kernels on kaggle to understand using seaborn and matplotlib better
+
+Develop a full-fledge envirnment with jupyter notebooks for analysis and Django app for chart description and meaning
